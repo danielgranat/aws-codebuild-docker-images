@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
 
-/usr/local/bin/dind docker daemon \
-	--host=unix:///var/run/docker.sock \
-	--host=tcp://0.0.0.0:2375 \
-	--storage-driver=overlay &>/var/log/docker.log &
+/usr/local/bin/dockerd \
+  --host=unix:///var/run/docker.sock \
+  --host=tcp://0.0.0.0:2375 \
+  --storage-driver=overlay &>/var/log/docker.log &
 
 d_timeout=$(( 60 + SECONDS ))
 until docker info >/dev/null 2>&1

@@ -76,4 +76,4 @@ RUN set -x \
 
 VOLUME /var/lib/docker
 
-ENTRYPOINT ["dockerd-entrypoint.sh"]
+#ENTRYPOINT ["dockerd-entrypoint.sh"]
